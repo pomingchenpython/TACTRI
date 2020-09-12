@@ -1,4 +1,4 @@
-"""pulifood URL Configuration
+"""TACTRIfood URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from puliapp.views import index,index1,login,login1,logout,logout1,adminmain,adminmain1,adminadd,adminadd1,adminedit,adminedit1,admindelete,admindelete1
+from TACTRIapp.views import index,index1,index2,login,login1,logout,logout1,adminmain,adminmain1,adminadd,adminadd1,adminedit,adminedit1,admindelete,admindelete1
 
 
 
@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^admindelete/$',admindelete),
     url(r'^admin/', admin.site.urls),
     url(r'^index1/$',index1),
+    url(r'^index2/$',index2),
     url(r'^login1/$',login1),
     url(r'^logout1/$',logout1),
     url(r'^adminmain1/$',adminmain1),

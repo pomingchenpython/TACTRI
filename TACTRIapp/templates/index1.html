@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>食安地圖</title>
+    <title>不合格食安地圖</title>
     <style type="text/css" media="screen">
     html {
         height: 100%;
@@ -45,6 +45,9 @@
         <strong>食安地圖</strong> &nbsp;版權所有 &copy; 2020&nbsp; TACTRI 林韶凱 博士 All Rights Reserved. 
         <a href="/login">合格管理</a>
         <a href="/login1">不合格管理</a>
+        <a href="/index">合格地圖</a>
+        <a href="/index1">不合格地圖</a>
+        <a href="/admin">後台管理</a>
         <div id="map"></div>
     </div>
     
@@ -61,7 +64,6 @@
                 center: center,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }); 
-
         //--------下面是呼叫一個新marker------
        {% for item in all %}  //逐筆建立地標
                 var latLng = new google.maps.LatLng({{item.mapLat}}, {{item.mapLng}});  //景點坐標
@@ -70,9 +72,8 @@
                     title: "{{item.mapName}}",
                     animation: google.maps.Animation.DROP,  //動畫方式
                     map: map,
-                    icon:'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+                    icon:'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
                 });
-                
                 markers.push(marker);  //將地標加入串列
                 //建立地標訊息視窗
                 var message = "<div class='markdiv'><div class='marktitle'>" + "{{item.mapName}}" + "</div>" + "{{item.mapDesc}}" + "<br><div class='contactinfo'>電話："+ "{{item.mapTel}}" +"<br>住址："+"{{item.mapAddr}}" + "</div><a href='#' onClick='show_streeview()'><img src='http://cbk0.google.com/cbk?output=thumbnail&w=250&h=50&ll="+ {{item.mapLat}} +","+ {{item.mapLng}} +"'></a></div>"

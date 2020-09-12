@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from datetime import datetime
-from puliapp.models import maplist,maplist1
+from TACTRIapp.models import maplist,maplist1,maplist2
 from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from itertools import chain
@@ -10,11 +10,16 @@ def index1(request):
 	all=maplist1.objects.all()
 	return render(request, "index1.html", locals())
 def index(request):
+	all=maplist.objects.all()
+	return render(request, "index.html", locals())
+
+def index2(request):
 	all1=maplist.objects.all()
 	all2=maplist1.objects.all()
 	maplist3=list(chain(all1,all2))
 	all=maplist3
 	return render(request, "index.html", locals())
+
 
 def login(request):  #登入
 	messages = ''  #初始時清除訊息
